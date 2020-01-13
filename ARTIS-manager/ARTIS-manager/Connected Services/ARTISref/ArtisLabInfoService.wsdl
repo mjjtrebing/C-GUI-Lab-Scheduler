@@ -1,0 +1,1737 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="https://itec-web-dev04.radford.edu/ews" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="https://itec-web-dev04.radford.edu/ews" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">provides Artis Lab User information to any platform</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="https://itec-web-dev04.radford.edu/ews">
+      <s:element name="logIn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strUsername" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="logInResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="logInResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sysLogOut">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strToken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sysLogOutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sysLogOutResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addSysAdmin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addSysAdminResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="addSysAdminResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteSysAdmin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteSysAdminResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deleteSysAdminResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUserResult" type="tns:User" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="User">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="firstname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lastname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="usertype" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="createdate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="estsunsetdate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="sunsetdate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="notes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="errmessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrivUseSet">
+            <s:complexType>
+              <s:sequence>
+                <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="PastReservations">
+            <s:complexType>
+              <s:sequence>
+                <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="FutureReservations">
+            <s:complexType>
+              <s:sequence>
+                <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getResource">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getResourceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getResourceResult" type="tns:Resource" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Resource">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="rname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="notes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="errmessage" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UsesInLast90Days" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UsesInLastYear" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AllUses" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="addNewUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usertype" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addNewUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="addNewUserResult" type="tns:User" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getInactiveUsers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="daysInactive" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="usertype" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getInactiveUsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getInactiveUsersResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sunsetRetiredUsers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usertype" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="graceDays" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sunsetRetiredUsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sunsetRetiredUsersResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="searchUsers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usertype" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="stringToFind" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DaysInactiveCutoff" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="UsesIn90DaysCutOff" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="searchUsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="searchUsersResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getResourceList">
+        <s:complexType />
+      </s:element>
+      <s:element name="getResourceListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getResourceListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getResourceUsage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getResourceUsageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getResourceUsageResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usertype" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUserListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSysAdminList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSysAdminListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getSysAdminListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPrivList">
+        <s:complexType />
+      </s:element>
+      <s:element name="getPrivListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPrivListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserTypeList">
+        <s:complexType />
+      </s:element>
+      <s:element name="getUserTypeListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUserTypeListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserStatusList">
+        <s:complexType />
+      </s:element>
+      <s:element name="getUserStatusListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUserStatusListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="saveUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userToSave" type="tns:User" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="saveUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="saveUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UsernameToDelete" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deleteUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="User" nillable="true" type="tns:User" />
+      <s:element name="Resource" nillable="true" type="tns:Resource" />
+      <s:element name="DataTable" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="logInSoapIn">
+    <wsdl:part name="parameters" element="tns:logIn" />
+  </wsdl:message>
+  <wsdl:message name="logInSoapOut">
+    <wsdl:part name="parameters" element="tns:logInResponse" />
+  </wsdl:message>
+  <wsdl:message name="sysLogOutSoapIn">
+    <wsdl:part name="parameters" element="tns:sysLogOut" />
+  </wsdl:message>
+  <wsdl:message name="sysLogOutSoapOut">
+    <wsdl:part name="parameters" element="tns:sysLogOutResponse" />
+  </wsdl:message>
+  <wsdl:message name="addSysAdminSoapIn">
+    <wsdl:part name="parameters" element="tns:addSysAdmin" />
+  </wsdl:message>
+  <wsdl:message name="addSysAdminSoapOut">
+    <wsdl:part name="parameters" element="tns:addSysAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteSysAdminSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteSysAdmin" />
+  </wsdl:message>
+  <wsdl:message name="deleteSysAdminSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteSysAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUserSoapIn">
+    <wsdl:part name="parameters" element="tns:getUser" />
+  </wsdl:message>
+  <wsdl:message name="getUserSoapOut">
+    <wsdl:part name="parameters" element="tns:getUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="getResourceSoapIn">
+    <wsdl:part name="parameters" element="tns:getResource" />
+  </wsdl:message>
+  <wsdl:message name="getResourceSoapOut">
+    <wsdl:part name="parameters" element="tns:getResourceResponse" />
+  </wsdl:message>
+  <wsdl:message name="addNewUserSoapIn">
+    <wsdl:part name="parameters" element="tns:addNewUser" />
+  </wsdl:message>
+  <wsdl:message name="addNewUserSoapOut">
+    <wsdl:part name="parameters" element="tns:addNewUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="getInactiveUsersSoapIn">
+    <wsdl:part name="parameters" element="tns:getInactiveUsers" />
+  </wsdl:message>
+  <wsdl:message name="getInactiveUsersSoapOut">
+    <wsdl:part name="parameters" element="tns:getInactiveUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="sunsetRetiredUsersSoapIn">
+    <wsdl:part name="parameters" element="tns:sunsetRetiredUsers" />
+  </wsdl:message>
+  <wsdl:message name="sunsetRetiredUsersSoapOut">
+    <wsdl:part name="parameters" element="tns:sunsetRetiredUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="searchUsersSoapIn">
+    <wsdl:part name="parameters" element="tns:searchUsers" />
+  </wsdl:message>
+  <wsdl:message name="searchUsersSoapOut">
+    <wsdl:part name="parameters" element="tns:searchUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="getResourceListSoapIn">
+    <wsdl:part name="parameters" element="tns:getResourceList" />
+  </wsdl:message>
+  <wsdl:message name="getResourceListSoapOut">
+    <wsdl:part name="parameters" element="tns:getResourceListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getResourceUsageSoapIn">
+    <wsdl:part name="parameters" element="tns:getResourceUsage" />
+  </wsdl:message>
+  <wsdl:message name="getResourceUsageSoapOut">
+    <wsdl:part name="parameters" element="tns:getResourceUsageResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUserListSoapIn">
+    <wsdl:part name="parameters" element="tns:getUserList" />
+  </wsdl:message>
+  <wsdl:message name="getUserListSoapOut">
+    <wsdl:part name="parameters" element="tns:getUserListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSysAdminListSoapIn">
+    <wsdl:part name="parameters" element="tns:getSysAdminList" />
+  </wsdl:message>
+  <wsdl:message name="getSysAdminListSoapOut">
+    <wsdl:part name="parameters" element="tns:getSysAdminListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPrivListSoapIn">
+    <wsdl:part name="parameters" element="tns:getPrivList" />
+  </wsdl:message>
+  <wsdl:message name="getPrivListSoapOut">
+    <wsdl:part name="parameters" element="tns:getPrivListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUserTypeListSoapIn">
+    <wsdl:part name="parameters" element="tns:getUserTypeList" />
+  </wsdl:message>
+  <wsdl:message name="getUserTypeListSoapOut">
+    <wsdl:part name="parameters" element="tns:getUserTypeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUserStatusListSoapIn">
+    <wsdl:part name="parameters" element="tns:getUserStatusList" />
+  </wsdl:message>
+  <wsdl:message name="getUserStatusListSoapOut">
+    <wsdl:part name="parameters" element="tns:getUserStatusListResponse" />
+  </wsdl:message>
+  <wsdl:message name="saveUserSoapIn">
+    <wsdl:part name="parameters" element="tns:saveUser" />
+  </wsdl:message>
+  <wsdl:message name="saveUserSoapOut">
+    <wsdl:part name="parameters" element="tns:saveUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteUserSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteUser" />
+  </wsdl:message>
+  <wsdl:message name="deleteUserSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="logInHttpGetIn">
+    <wsdl:part name="strUsername" type="s:string" />
+    <wsdl:part name="strPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="logInHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="sysLogOutHttpGetIn">
+    <wsdl:part name="strToken" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="sysLogOutHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="addSysAdminHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="firstname" type="s:string" />
+    <wsdl:part name="lastname" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="addSysAdminHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="deleteSysAdminHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="deleteSysAdminHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getUserHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getUserHttpGetOut">
+    <wsdl:part name="Body" element="tns:User" />
+  </wsdl:message>
+  <wsdl:message name="getResourceHttpGetIn">
+    <wsdl:part name="rname" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getResourceHttpGetOut">
+    <wsdl:part name="Body" element="tns:Resource" />
+  </wsdl:message>
+  <wsdl:message name="addNewUserHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="usertype" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="addNewUserHttpGetOut">
+    <wsdl:part name="Body" element="tns:User" />
+  </wsdl:message>
+  <wsdl:message name="getInactiveUsersHttpGetIn">
+    <wsdl:part name="daysInactive" type="s:string" />
+    <wsdl:part name="usertype" type="s:string" />
+    <wsdl:part name="status" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getInactiveUsersHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="sunsetRetiredUsersHttpGetIn">
+    <wsdl:part name="usertype" type="s:string" />
+    <wsdl:part name="graceDays" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="sunsetRetiredUsersHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="searchUsersHttpGetIn">
+    <wsdl:part name="usertype" type="s:string" />
+    <wsdl:part name="status" type="s:string" />
+    <wsdl:part name="stringToFind" type="s:string" />
+    <wsdl:part name="DaysInactiveCutoff" type="s:string" />
+    <wsdl:part name="UsesIn90DaysCutOff" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="searchUsersHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="getResourceListHttpGetIn" />
+  <wsdl:message name="getResourceListHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="getResourceUsageHttpGetIn">
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getResourceUsageHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="getUserListHttpGetIn">
+    <wsdl:part name="usertype" type="s:string" />
+    <wsdl:part name="status" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getUserListHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="getSysAdminListHttpGetIn">
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getSysAdminListHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="getPrivListHttpGetIn" />
+  <wsdl:message name="getPrivListHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="getUserTypeListHttpGetIn" />
+  <wsdl:message name="getUserTypeListHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="getUserStatusListHttpGetIn" />
+  <wsdl:message name="getUserStatusListHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="deleteUserHttpGetIn">
+    <wsdl:part name="UsernameToDelete" type="s:string" />
+    <wsdl:part name="Token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="deleteUserHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="logInHttpPostIn">
+    <wsdl:part name="strUsername" type="s:string" />
+    <wsdl:part name="strPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="logInHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="sysLogOutHttpPostIn">
+    <wsdl:part name="strToken" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="sysLogOutHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="addSysAdminHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="firstname" type="s:string" />
+    <wsdl:part name="lastname" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="addSysAdminHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="deleteSysAdminHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="deleteSysAdminHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getUserHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getUserHttpPostOut">
+    <wsdl:part name="Body" element="tns:User" />
+  </wsdl:message>
+  <wsdl:message name="getResourceHttpPostIn">
+    <wsdl:part name="rname" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getResourceHttpPostOut">
+    <wsdl:part name="Body" element="tns:Resource" />
+  </wsdl:message>
+  <wsdl:message name="addNewUserHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="usertype" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="addNewUserHttpPostOut">
+    <wsdl:part name="Body" element="tns:User" />
+  </wsdl:message>
+  <wsdl:message name="getInactiveUsersHttpPostIn">
+    <wsdl:part name="daysInactive" type="s:string" />
+    <wsdl:part name="usertype" type="s:string" />
+    <wsdl:part name="status" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getInactiveUsersHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="sunsetRetiredUsersHttpPostIn">
+    <wsdl:part name="usertype" type="s:string" />
+    <wsdl:part name="graceDays" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="sunsetRetiredUsersHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="searchUsersHttpPostIn">
+    <wsdl:part name="usertype" type="s:string" />
+    <wsdl:part name="status" type="s:string" />
+    <wsdl:part name="stringToFind" type="s:string" />
+    <wsdl:part name="DaysInactiveCutoff" type="s:string" />
+    <wsdl:part name="UsesIn90DaysCutOff" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="searchUsersHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="getResourceListHttpPostIn" />
+  <wsdl:message name="getResourceListHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="getResourceUsageHttpPostIn">
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getResourceUsageHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="getUserListHttpPostIn">
+    <wsdl:part name="usertype" type="s:string" />
+    <wsdl:part name="status" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getUserListHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="getSysAdminListHttpPostIn">
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getSysAdminListHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="getPrivListHttpPostIn" />
+  <wsdl:message name="getPrivListHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="getUserTypeListHttpPostIn" />
+  <wsdl:message name="getUserTypeListHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="getUserStatusListHttpPostIn" />
+  <wsdl:message name="getUserStatusListHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="deleteUserHttpPostIn">
+    <wsdl:part name="UsernameToDelete" type="s:string" />
+    <wsdl:part name="Token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="deleteUserHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="ArtisLabInfoServiceSoap">
+    <wsdl:operation name="logIn">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">authenticate sys admin and return token</wsdl:documentation>
+      <wsdl:input message="tns:logInSoapIn" />
+      <wsdl:output message="tns:logInSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sysLogOut">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">log out</wsdl:documentation>
+      <wsdl:input message="tns:sysLogOutSoapIn" />
+      <wsdl:output message="tns:sysLogOutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addSysAdmin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">add a sys admin</wsdl:documentation>
+      <wsdl:input message="tns:addSysAdminSoapIn" />
+      <wsdl:output message="tns:addSysAdminSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteSysAdmin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">delete a sys admin</wsdl:documentation>
+      <wsdl:input message="tns:deleteSysAdminSoapIn" />
+      <wsdl:output message="tns:deleteSysAdminSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">get a user object</wsdl:documentation>
+      <wsdl:input message="tns:getUserSoapIn" />
+      <wsdl:output message="tns:getUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getResource">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">get a resource object</wsdl:documentation>
+      <wsdl:input message="tns:getResourceSoapIn" />
+      <wsdl:output message="tns:getResourceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addNewUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">get a new user object for a new user</wsdl:documentation>
+      <wsdl:input message="tns:addNewUserSoapIn" />
+      <wsdl:output message="tns:addNewUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getInactiveUsers">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">return list of inactive users</wsdl:documentation>
+      <wsdl:input message="tns:getInactiveUsersSoapIn" />
+      <wsdl:output message="tns:getInactiveUsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sunsetRetiredUsers">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">sunsets users that are graceDays past their estimated sunset date</wsdl:documentation>
+      <wsdl:input message="tns:sunsetRetiredUsersSoapIn" />
+      <wsdl:output message="tns:sunsetRetiredUsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="searchUsers">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">search for users using different parameters, see assignment documentation</wsdl:documentation>
+      <wsdl:input message="tns:searchUsersSoapIn" />
+      <wsdl:output message="tns:searchUsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getResourceList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">return list of resources</wsdl:documentation>
+      <wsdl:input message="tns:getResourceListSoapIn" />
+      <wsdl:output message="tns:getResourceListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getResourceUsage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">return list of resources with usage data</wsdl:documentation>
+      <wsdl:input message="tns:getResourceUsageSoapIn" />
+      <wsdl:output message="tns:getResourceUsageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">return list of users including username and fullname</wsdl:documentation>
+      <wsdl:input message="tns:getUserListSoapIn" />
+      <wsdl:output message="tns:getUserListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSysAdminList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">return list of sysadmins including username and fullname</wsdl:documentation>
+      <wsdl:input message="tns:getSysAdminListSoapIn" />
+      <wsdl:output message="tns:getSysAdminListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPrivList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">return list of the three priv levels</wsdl:documentation>
+      <wsdl:input message="tns:getPrivListSoapIn" />
+      <wsdl:output message="tns:getPrivListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserTypeList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">return list of usertypes</wsdl:documentation>
+      <wsdl:input message="tns:getUserTypeListSoapIn" />
+      <wsdl:output message="tns:getUserTypeListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserStatusList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">return list of user statuses</wsdl:documentation>
+      <wsdl:input message="tns:getUserStatusListSoapIn" />
+      <wsdl:output message="tns:getUserStatusListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="saveUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Save changes to a User back to the database</wsdl:documentation>
+      <wsdl:input message="tns:saveUserSoapIn" />
+      <wsdl:output message="tns:saveUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete a User from the database</wsdl:documentation>
+      <wsdl:input message="tns:deleteUserSoapIn" />
+      <wsdl:output message="tns:deleteUserSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ArtisLabInfoServiceHttpGet">
+    <wsdl:operation name="logIn">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">authenticate sys admin and return token</wsdl:documentation>
+      <wsdl:input message="tns:logInHttpGetIn" />
+      <wsdl:output message="tns:logInHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sysLogOut">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">log out</wsdl:documentation>
+      <wsdl:input message="tns:sysLogOutHttpGetIn" />
+      <wsdl:output message="tns:sysLogOutHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addSysAdmin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">add a sys admin</wsdl:documentation>
+      <wsdl:input message="tns:addSysAdminHttpGetIn" />
+      <wsdl:output message="tns:addSysAdminHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteSysAdmin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">delete a sys admin</wsdl:documentation>
+      <wsdl:input message="tns:deleteSysAdminHttpGetIn" />
+      <wsdl:output message="tns:deleteSysAdminHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">get a user object</wsdl:documentation>
+      <wsdl:input message="tns:getUserHttpGetIn" />
+      <wsdl:output message="tns:getUserHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getResource">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">get a resource object</wsdl:documentation>
+      <wsdl:input message="tns:getResourceHttpGetIn" />
+      <wsdl:output message="tns:getResourceHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addNewUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">get a new user object for a new user</wsdl:documentation>
+      <wsdl:input message="tns:addNewUserHttpGetIn" />
+      <wsdl:output message="tns:addNewUserHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getInactiveUsers">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">return list of inactive users</wsdl:documentation>
+      <wsdl:input message="tns:getInactiveUsersHttpGetIn" />
+      <wsdl:output message="tns:getInactiveUsersHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sunsetRetiredUsers">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">sunsets users that are graceDays past their estimated sunset date</wsdl:documentation>
+      <wsdl:input message="tns:sunsetRetiredUsersHttpGetIn" />
+      <wsdl:output message="tns:sunsetRetiredUsersHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="searchUsers">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">search for users using different parameters, see assignment documentation</wsdl:documentation>
+      <wsdl:input message="tns:searchUsersHttpGetIn" />
+      <wsdl:output message="tns:searchUsersHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getResourceList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">return list of resources</wsdl:documentation>
+      <wsdl:input message="tns:getResourceListHttpGetIn" />
+      <wsdl:output message="tns:getResourceListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getResourceUsage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">return list of resources with usage data</wsdl:documentation>
+      <wsdl:input message="tns:getResourceUsageHttpGetIn" />
+      <wsdl:output message="tns:getResourceUsageHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">return list of users including username and fullname</wsdl:documentation>
+      <wsdl:input message="tns:getUserListHttpGetIn" />
+      <wsdl:output message="tns:getUserListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSysAdminList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">return list of sysadmins including username and fullname</wsdl:documentation>
+      <wsdl:input message="tns:getSysAdminListHttpGetIn" />
+      <wsdl:output message="tns:getSysAdminListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPrivList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">return list of the three priv levels</wsdl:documentation>
+      <wsdl:input message="tns:getPrivListHttpGetIn" />
+      <wsdl:output message="tns:getPrivListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserTypeList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">return list of usertypes</wsdl:documentation>
+      <wsdl:input message="tns:getUserTypeListHttpGetIn" />
+      <wsdl:output message="tns:getUserTypeListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserStatusList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">return list of user statuses</wsdl:documentation>
+      <wsdl:input message="tns:getUserStatusListHttpGetIn" />
+      <wsdl:output message="tns:getUserStatusListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete a User from the database</wsdl:documentation>
+      <wsdl:input message="tns:deleteUserHttpGetIn" />
+      <wsdl:output message="tns:deleteUserHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ArtisLabInfoServiceHttpPost">
+    <wsdl:operation name="logIn">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">authenticate sys admin and return token</wsdl:documentation>
+      <wsdl:input message="tns:logInHttpPostIn" />
+      <wsdl:output message="tns:logInHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sysLogOut">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">log out</wsdl:documentation>
+      <wsdl:input message="tns:sysLogOutHttpPostIn" />
+      <wsdl:output message="tns:sysLogOutHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addSysAdmin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">add a sys admin</wsdl:documentation>
+      <wsdl:input message="tns:addSysAdminHttpPostIn" />
+      <wsdl:output message="tns:addSysAdminHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteSysAdmin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">delete a sys admin</wsdl:documentation>
+      <wsdl:input message="tns:deleteSysAdminHttpPostIn" />
+      <wsdl:output message="tns:deleteSysAdminHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">get a user object</wsdl:documentation>
+      <wsdl:input message="tns:getUserHttpPostIn" />
+      <wsdl:output message="tns:getUserHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getResource">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">get a resource object</wsdl:documentation>
+      <wsdl:input message="tns:getResourceHttpPostIn" />
+      <wsdl:output message="tns:getResourceHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addNewUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">get a new user object for a new user</wsdl:documentation>
+      <wsdl:input message="tns:addNewUserHttpPostIn" />
+      <wsdl:output message="tns:addNewUserHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getInactiveUsers">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">return list of inactive users</wsdl:documentation>
+      <wsdl:input message="tns:getInactiveUsersHttpPostIn" />
+      <wsdl:output message="tns:getInactiveUsersHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sunsetRetiredUsers">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">sunsets users that are graceDays past their estimated sunset date</wsdl:documentation>
+      <wsdl:input message="tns:sunsetRetiredUsersHttpPostIn" />
+      <wsdl:output message="tns:sunsetRetiredUsersHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="searchUsers">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">search for users using different parameters, see assignment documentation</wsdl:documentation>
+      <wsdl:input message="tns:searchUsersHttpPostIn" />
+      <wsdl:output message="tns:searchUsersHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getResourceList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">return list of resources</wsdl:documentation>
+      <wsdl:input message="tns:getResourceListHttpPostIn" />
+      <wsdl:output message="tns:getResourceListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getResourceUsage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">return list of resources with usage data</wsdl:documentation>
+      <wsdl:input message="tns:getResourceUsageHttpPostIn" />
+      <wsdl:output message="tns:getResourceUsageHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">return list of users including username and fullname</wsdl:documentation>
+      <wsdl:input message="tns:getUserListHttpPostIn" />
+      <wsdl:output message="tns:getUserListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSysAdminList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">return list of sysadmins including username and fullname</wsdl:documentation>
+      <wsdl:input message="tns:getSysAdminListHttpPostIn" />
+      <wsdl:output message="tns:getSysAdminListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPrivList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">return list of the three priv levels</wsdl:documentation>
+      <wsdl:input message="tns:getPrivListHttpPostIn" />
+      <wsdl:output message="tns:getPrivListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserTypeList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">return list of usertypes</wsdl:documentation>
+      <wsdl:input message="tns:getUserTypeListHttpPostIn" />
+      <wsdl:output message="tns:getUserTypeListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserStatusList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">return list of user statuses</wsdl:documentation>
+      <wsdl:input message="tns:getUserStatusListHttpPostIn" />
+      <wsdl:output message="tns:getUserStatusListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete a User from the database</wsdl:documentation>
+      <wsdl:input message="tns:deleteUserHttpPostIn" />
+      <wsdl:output message="tns:deleteUserHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ArtisLabInfoServiceSoap" type="tns:ArtisLabInfoServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="logIn">
+      <soap:operation soapAction="https://itec-web-dev04.radford.edu/ews/logIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sysLogOut">
+      <soap:operation soapAction="https://itec-web-dev04.radford.edu/ews/sysLogOut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addSysAdmin">
+      <soap:operation soapAction="https://itec-web-dev04.radford.edu/ews/addSysAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteSysAdmin">
+      <soap:operation soapAction="https://itec-web-dev04.radford.edu/ews/deleteSysAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUser">
+      <soap:operation soapAction="https://itec-web-dev04.radford.edu/ews/getUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResource">
+      <soap:operation soapAction="https://itec-web-dev04.radford.edu/ews/getResource" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addNewUser">
+      <soap:operation soapAction="https://itec-web-dev04.radford.edu/ews/addNewUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInactiveUsers">
+      <soap:operation soapAction="https://itec-web-dev04.radford.edu/ews/getInactiveUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sunsetRetiredUsers">
+      <soap:operation soapAction="https://itec-web-dev04.radford.edu/ews/sunsetRetiredUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchUsers">
+      <soap:operation soapAction="https://itec-web-dev04.radford.edu/ews/searchUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResourceList">
+      <soap:operation soapAction="https://itec-web-dev04.radford.edu/ews/getResourceList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResourceUsage">
+      <soap:operation soapAction="https://itec-web-dev04.radford.edu/ews/getResourceUsage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserList">
+      <soap:operation soapAction="https://itec-web-dev04.radford.edu/ews/getUserList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSysAdminList">
+      <soap:operation soapAction="https://itec-web-dev04.radford.edu/ews/getSysAdminList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPrivList">
+      <soap:operation soapAction="https://itec-web-dev04.radford.edu/ews/getPrivList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserTypeList">
+      <soap:operation soapAction="https://itec-web-dev04.radford.edu/ews/getUserTypeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserStatusList">
+      <soap:operation soapAction="https://itec-web-dev04.radford.edu/ews/getUserStatusList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveUser">
+      <soap:operation soapAction="https://itec-web-dev04.radford.edu/ews/saveUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteUser">
+      <soap:operation soapAction="https://itec-web-dev04.radford.edu/ews/deleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ArtisLabInfoServiceSoap12" type="tns:ArtisLabInfoServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="logIn">
+      <soap12:operation soapAction="https://itec-web-dev04.radford.edu/ews/logIn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sysLogOut">
+      <soap12:operation soapAction="https://itec-web-dev04.radford.edu/ews/sysLogOut" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addSysAdmin">
+      <soap12:operation soapAction="https://itec-web-dev04.radford.edu/ews/addSysAdmin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteSysAdmin">
+      <soap12:operation soapAction="https://itec-web-dev04.radford.edu/ews/deleteSysAdmin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUser">
+      <soap12:operation soapAction="https://itec-web-dev04.radford.edu/ews/getUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResource">
+      <soap12:operation soapAction="https://itec-web-dev04.radford.edu/ews/getResource" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addNewUser">
+      <soap12:operation soapAction="https://itec-web-dev04.radford.edu/ews/addNewUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInactiveUsers">
+      <soap12:operation soapAction="https://itec-web-dev04.radford.edu/ews/getInactiveUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sunsetRetiredUsers">
+      <soap12:operation soapAction="https://itec-web-dev04.radford.edu/ews/sunsetRetiredUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchUsers">
+      <soap12:operation soapAction="https://itec-web-dev04.radford.edu/ews/searchUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResourceList">
+      <soap12:operation soapAction="https://itec-web-dev04.radford.edu/ews/getResourceList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResourceUsage">
+      <soap12:operation soapAction="https://itec-web-dev04.radford.edu/ews/getResourceUsage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserList">
+      <soap12:operation soapAction="https://itec-web-dev04.radford.edu/ews/getUserList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSysAdminList">
+      <soap12:operation soapAction="https://itec-web-dev04.radford.edu/ews/getSysAdminList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPrivList">
+      <soap12:operation soapAction="https://itec-web-dev04.radford.edu/ews/getPrivList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserTypeList">
+      <soap12:operation soapAction="https://itec-web-dev04.radford.edu/ews/getUserTypeList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserStatusList">
+      <soap12:operation soapAction="https://itec-web-dev04.radford.edu/ews/getUserStatusList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveUser">
+      <soap12:operation soapAction="https://itec-web-dev04.radford.edu/ews/saveUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteUser">
+      <soap12:operation soapAction="https://itec-web-dev04.radford.edu/ews/deleteUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ArtisLabInfoServiceHttpGet" type="tns:ArtisLabInfoServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="logIn">
+      <http:operation location="/logIn" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sysLogOut">
+      <http:operation location="/sysLogOut" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addSysAdmin">
+      <http:operation location="/addSysAdmin" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteSysAdmin">
+      <http:operation location="/deleteSysAdmin" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUser">
+      <http:operation location="/getUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResource">
+      <http:operation location="/getResource" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addNewUser">
+      <http:operation location="/addNewUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInactiveUsers">
+      <http:operation location="/getInactiveUsers" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sunsetRetiredUsers">
+      <http:operation location="/sunsetRetiredUsers" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchUsers">
+      <http:operation location="/searchUsers" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResourceList">
+      <http:operation location="/getResourceList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResourceUsage">
+      <http:operation location="/getResourceUsage" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserList">
+      <http:operation location="/getUserList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSysAdminList">
+      <http:operation location="/getSysAdminList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPrivList">
+      <http:operation location="/getPrivList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserTypeList">
+      <http:operation location="/getUserTypeList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserStatusList">
+      <http:operation location="/getUserStatusList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteUser">
+      <http:operation location="/deleteUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ArtisLabInfoServiceHttpPost" type="tns:ArtisLabInfoServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="logIn">
+      <http:operation location="/logIn" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sysLogOut">
+      <http:operation location="/sysLogOut" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addSysAdmin">
+      <http:operation location="/addSysAdmin" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteSysAdmin">
+      <http:operation location="/deleteSysAdmin" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUser">
+      <http:operation location="/getUser" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResource">
+      <http:operation location="/getResource" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addNewUser">
+      <http:operation location="/addNewUser" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInactiveUsers">
+      <http:operation location="/getInactiveUsers" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sunsetRetiredUsers">
+      <http:operation location="/sunsetRetiredUsers" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchUsers">
+      <http:operation location="/searchUsers" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResourceList">
+      <http:operation location="/getResourceList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResourceUsage">
+      <http:operation location="/getResourceUsage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserList">
+      <http:operation location="/getUserList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSysAdminList">
+      <http:operation location="/getSysAdminList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPrivList">
+      <http:operation location="/getPrivList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserTypeList">
+      <http:operation location="/getUserTypeList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserStatusList">
+      <http:operation location="/getUserStatusList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteUser">
+      <http:operation location="/deleteUser" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ArtisLabInfoService">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">provides Artis Lab User information to any platform</wsdl:documentation>
+    <wsdl:port name="ArtisLabInfoServiceSoap" binding="tns:ArtisLabInfoServiceSoap">
+      <soap:address location="http://itec-web-dev04/EWS/ArtisLabInfoService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ArtisLabInfoServiceSoap12" binding="tns:ArtisLabInfoServiceSoap12">
+      <soap12:address location="http://itec-web-dev04/EWS/ArtisLabInfoService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ArtisLabInfoServiceHttpGet" binding="tns:ArtisLabInfoServiceHttpGet">
+      <http:address location="http://itec-web-dev04/EWS/ArtisLabInfoService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ArtisLabInfoServiceHttpPost" binding="tns:ArtisLabInfoServiceHttpPost">
+      <http:address location="http://itec-web-dev04/EWS/ArtisLabInfoService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,16 @@
+C:\Users\mjjtr\Desktop\VS workspace\ARTIS-manager\ARTIS-manager\bin\Debug\ARTIS-manager.exe.config
+C:\Users\mjjtr\Desktop\VS workspace\ARTIS-manager\ARTIS-manager\bin\Debug\ARTIS-manager.exe
+C:\Users\mjjtr\Desktop\VS workspace\ARTIS-manager\ARTIS-manager\bin\Debug\ARTIS-manager.pdb
+C:\Users\mjjtr\Desktop\VS workspace\ARTIS-manager\ARTIS-manager\obj\Debug\ARTIS-manager.csprojAssemblyReference.cache
+C:\Users\mjjtr\Desktop\VS workspace\ARTIS-manager\ARTIS-manager\obj\Debug\ARTIS_manager.Landing.resources
+C:\Users\mjjtr\Desktop\VS workspace\ARTIS-manager\ARTIS-manager\obj\Debug\ARTIS_manager.Login.resources
+C:\Users\mjjtr\Desktop\VS workspace\ARTIS-manager\ARTIS-manager\obj\Debug\ARTIS_manager.Properties.Resources.resources
+C:\Users\mjjtr\Desktop\VS workspace\ARTIS-manager\ARTIS-manager\obj\Debug\ARTIS-manager.csproj.GenerateResource.cache
+C:\Users\mjjtr\Desktop\VS workspace\ARTIS-manager\ARTIS-manager\obj\Debug\ARTIS-manager.csproj.CoreCompileInputs.cache
+C:\Users\mjjtr\Desktop\VS workspace\ARTIS-manager\ARTIS-manager\obj\Debug\ARTIS-manager.exe
+C:\Users\mjjtr\Desktop\VS workspace\ARTIS-manager\ARTIS-manager\obj\Debug\ARTIS-manager.pdb
+C:\Users\mjjtr\Desktop\VS workspace\ARTIS-manager\ARTIS-manager\obj\Debug\ARTIS_manager.User_page.resources
+C:\Users\mjjtr\Desktop\VS workspace\ARTIS-manager\ARTIS-manager\obj\Debug\ARTIS_manager.manage_form.resources
+C:\Users\mjjtr\Desktop\VS workspace\ARTIS-manager\ARTIS-manager\obj\Debug\ARTIS_manager.Users_form.resources
+C:\Users\mjjtr\Desktop\VS workspace\ARTIS-manager\ARTIS-manager\obj\Debug\ARTIS_manager.sunset_form.resources
+C:\Users\mjjtr\Desktop\VS workspace\ARTIS-manager\ARTIS-manager\obj\Debug\ARTIS_manager.Admin_form.resources
